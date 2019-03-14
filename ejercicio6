@@ -1,0 +1,58 @@
+//ejercicio6.h
+#pragma once
+class Vector
+{
+private:
+	int n; float A[100];
+public:
+	Vector(void);
+	~Vector(void);
+	void cargar(float A[], int n);
+	void promediar(float A[], int n);
+};
+
+//ejercicio6.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargar (float A[], int n)
+{ for (int a=0;a<n;a++)
+ {cout<<"["<<a+1<<"]=";cin>>A[a];
+ }
+}
+
+void Vector::promediar (float A[], int n)
+{for (int a=0;a<n-2;a++)
+ {cout<<"P["<<a+1<<"]="<<(A[a]+A[a+1]+A[a+2])/3<<"  ";
+ }
+}
+
+// ejercicio6main
+
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N; float a[100];
+do{ cout<<"Ingrese el tamanio del vector: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1;
+V1.cargar(a,N);
+cout<<"Los promedios son: "<<endl;
+V1.promediar(a,N);
+getch();
+}
