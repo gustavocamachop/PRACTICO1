@@ -1,0 +1,82 @@
+//ejercicio10.h
+#pragma once
+class Vector
+{
+private:
+	int n; float A[100], B[100], C[200];
+public:
+	Vector(void);
+	~Vector(void);
+	void cargar(float A[], int n);
+	void mostrar (float A[], int n);
+	void concatenar (float A[], float B[], float C[],int n);
+	void ordenar( float A[], int n);
+};
+
+//ejercicio10.cpp
+#include "StdAfx.h"
+#include "Vector.h"
+#include <iostream>
+using namespace std;
+
+Vector::Vector(void)
+{
+}
+
+
+Vector::~Vector(void)
+{
+}
+
+void Vector::cargar (float A[], int n)
+{ for (int a=0;a<n;a++)
+ {cout<<"["<<a+1<<"]=";cin>>A[a];
+ }
+}
+
+void Vector:: mostrar (float A[], int n)
+{for (int a=0;a<n;a++)
+ {cout<<"["<<a+1<<"]="<<A[a]<<"  ";
+ }
+}
+
+void Vector::concatenar (float A[], float B[], float C[], int n)
+{ int cont=0;
+for(int a=0;a<n;a++)
+{C[cont]=A[a]; cont++;
+}
+cont=n;
+for(int i=0;i<n;i++)
+{C[cont]=B[i]; cont ++;
+}
+}
+
+void Vector::ordenar(float A[], int n)
+{float aux;
+ for(int a=0;a<n-1;a++)
+{for (int b=a+1;b<n;b++)
+ {if(A[b]<A[a]){aux=A[a];A[a]=A[b];A[b]=aux;}
+}
+}
+}
+
+// ejercicio10main
+
+#include "stdafx.h"
+#include "Vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+void main()
+{int N; float a[100], b[100], c[200];
+do{ cout<<"Ingrese el tamanio de los vectores: ";cin>>N;}
+while (N<=0||N>100);
+Vector V1,V2,V3;
+V1.cargar(a,N); V1.ordenar (a,N);
+V2.cargar(b,N); V2.ordenar (b,N);
+V3.concatenar(a,b,c,N); V3.ordenar (c,2*N);
+cout<<"Los vectores unidos y ordenados son: "<<endl;
+V3.mostrar (c,2*N);
+getch();
+}
