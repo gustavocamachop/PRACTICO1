@@ -1,0 +1,54 @@
+//ejercicio2.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void cargar(int n);
+	float minimovalor(int n);
+};
+
+//ejercicio2.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+using namespace std;
+
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::cargar(int n)
+{for (int a=0;a<n;a++)
+{cout<<"V["<<a+1<<"]= ";cin>>vec[a];
+}
+}
+float vector::minimovalor(int n)
+{float aux=vec[0];
+	for (int a=0;a<n;a++)
+	{if (vec[a]<aux) {aux=vec[a];}
+    }return aux;
+}
+
+// ejercicio2.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+void main()
+{int n; float vec[100];
+do{ cout<<"Ingrese el tamanio del vector: "; cin>>n;}
+while (n<=0);
+vector v1(n);
+v1.cargar(n);
+cout<<"El valor mas bajo del vector es: "<<v1.minimovalor(n);
+getch();
+}
