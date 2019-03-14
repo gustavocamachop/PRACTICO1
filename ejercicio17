@@ -1,0 +1,57 @@
+//ejercicio17.h
+#pragma once
+class vector
+{
+private: float vec[100];
+		 int n;
+public:
+	vector(int _n);
+	~vector(void);
+	void mostrar(int n);
+	void fibonacci(int n);
+};
+
+//ejercicio17.cpp
+#include "StdAfx.h"
+#include "vector.h"
+#include "conio.h"
+#include <iostream>
+#include "math.h"
+using namespace std;
+vector::vector(int _n)
+{vec[100]=0;
+n=_n;
+}
+vector::~vector(void)
+{
+}
+void vector::mostrar(int n)
+{for (int a=0;a<n;a++)
+{cout<<vec[a]<< "   ";
+}}
+
+void vector::fibonacci(int n)
+{int a=1,b=1;
+vec[0]=a;vec[1]=b;
+for (int i=2;i<n;i++)
+{vec[i]= vec[i-1]+vec[i-2];
+}
+}
+
+
+// ejercicio17.main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "vector.h"
+using namespace std;
+
+void main()
+{int n,c; float vec[100];
+do{ cout<<"Ingrese la cantidad de terminos de la cadena a encontrar: "; cin>>n;}
+while (n<=2);
+vector v1(n);
+v1.fibonacci(n);
+v1.mostrar(n);
+getch();
+}
