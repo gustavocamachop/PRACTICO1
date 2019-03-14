@@ -1,0 +1,72 @@
+//ejercicio7.h
+#pragma once
+class Literal
+{
+private:
+	int n;
+public:
+	Literal(void);
+	~Literal(void);
+	void convertir (int n);
+};
+
+//ejercicio7.cpp
+#include "StdAfx.h"
+#include "Literal.h"
+#include <iostream>
+using namespace std;
+
+
+Literal::Literal(void)
+{
+}
+
+
+Literal::~Literal(void)
+{
+}
+
+void Literal::convertir (int n)
+{switch(n)
+{case 1: cout<<"El numero "<<n<<" se escribe UNO"<<endl;break;
+ case 2: cout<<"El numero "<<n<<" se escribe DOS"<<endl;break;
+ case 3: cout<<"El numero "<<n<<" se escribe TRES"<<endl;break;
+ case 4: cout<<"El numero "<<n<<" se escribe CUATRO"<<endl;break;
+ case 5: cout<<"El numero "<<n<<" se escribe CINCO"<<endl;break;
+ case 6: cout<<"El numero "<<n<<" se escribe SEIS"<<endl;break;
+ case 7: cout<<"El numero "<<n<<" se escribe SIETE"<<endl;break;
+ case 8: cout<<"El numero "<<n<<" se escribe OCHO"<<endl;break;
+ case 9: cout<<"El numero "<<n<<" se escribe NUEVE"<<endl;break;
+ case 10: cout<<"El numero "<<n<<" se escribe DIEZ"<<endl;break;
+ case 11: cout<<"El numero "<<n<<" se escribe ONCE"<<endl;break;
+ case 12: cout<<"El numero "<<n<<" se escribe DOCE"<<endl;break;
+ case 13: cout<<"El numero "<<n<<" se escribe TRECE"<<endl;break;
+ case 14: cout<<"El numero "<<n<<" se escribe CATORCE"<<endl;break;
+ case 15: cout<<"El numero "<<n<<" se escribe QUINCE"<<endl;break;
+ case 16: cout<<"El numero "<<n<<" se escribe DEICISEIS"<<endl;break;
+ case 17: cout<<"El numero "<<n<<" se escribe DIECISIETE"<<endl;break;
+ case 18: cout<<"El numero "<<n<<" se escribe DIECIOCHO"<<endl;break;
+ case 19: cout<<"El numero "<<n<<" se escribe DIECINUEVE"<<endl;break;
+ case 20: cout<<"El numero "<<n<<" se escribe VEINTE"<<endl;break;
+}
+}
+
+// ejercicio7main
+
+#include "stdafx.h"
+#include "Literal.h"
+#include <iostream>
+#include "conio.h"
+using namespace std;
+
+
+void main()
+{int n;
+do{cout<<"Ingrese un numero entre el 1 y 20"<<endl;
+   cin>>n;
+   if(n<1||n>20) {cout<<"Numero no valido"<<endl;}
+}while(n<1||n>20);
+Literal n1;
+n1.convertir(n);
+getch();
+}
