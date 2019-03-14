@@ -1,0 +1,65 @@
+//ejercicio4.h
+#pragma once
+class Revertir
+{
+private:
+       int n ;
+       float A[100],B[100];
+
+public:
+       Revertir(void);
+       ~Revertir(void);
+       void cargar (float A[], int n);
+       void mostrar (float A[], int n);
+       void revertir (float A[],float B[],int n);
+};
+
+#include "StdAfx.h"
+#include "Revertir.h"
+#include <iostream>
+ using namespace std;
+Revertir::Revertir(void)
+{
+}
+Revertir::~Revertir(void)
+{
+}
+void Revertir::cargar (float A[], int n)
+{ for (int i=0 ; i<n ;i++)
+     { cout<<"V["<<i+1<<"] : ";
+       cin>>A[i] ;
+     } 
+}
+void Revertir::mostrar (float A[], int n)
+{ for (int i=0 ; i<n ;i++)
+     { cout<<A[i]<<"   ";
+     }
+}
+void Revertir::revertir (float A[],float B[],int n)
+{  int a=1;
+   cout<<"\n";
+       for (int i=0; i<n ; i++ )
+        { B[n-a]=A[i];
+          a++;
+        }
+}
+
+// ejercicio4main
+#include "stdafx.h"
+#include "conio.h"
+#include <iostream>
+#include "Revertir.h"
+ using namespace std ;
+void main ()
+{ int N ;
+  float a[100],b[100];
+  do { cout<<"ingrese cantidad de elementos : ";
+       cin>> N ;
+     }while (N>100 || N<0);
+  Revertir V1 , V2 ;
+  V1.cargar (a,N);
+  V1.mostrar (a,N);
+  V2.revertir(a,b,N);
+  V2.mostrar(b,N);
+getch();
+}
